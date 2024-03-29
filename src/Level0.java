@@ -2,6 +2,54 @@ public class Level0 {
 
     /*
         문제 설명
+        문자열에 따라 다음과 같이 두 수의 크기를 비교하려고 합니다.
+
+        두 수가 n과 m이라면
+        ">", "=" : n >= m
+        "<", "=" : n <= m
+        ">", "!" : n > m
+        "<", "!" : n < m
+        두 문자열 ineq와 eq가 주어집니다. ineq는 "<"와 ">"중 하나고, eq는 "="와 "!"중 하나입니다. 그리고 두 정수 n과 m이 주어질 때, n과 m이 ineq와 eq의 조건에 맞으면 1을 아니면 0을 return하도록 solution 함수를 완성해주세요.
+
+        제한 사항
+        1 ≤ n, m ≤ 100
+
+        입출력 예
+        ineq	eq	n	m	result
+        "<"	"="	20	50	1
+        ">"	"!"	41	78	0
+
+        입출력 예 설명
+        입출력 예 #1
+        20 <= 50은 참이기 때문에 1을 return합니다.
+        입출력 예 #2
+        41 > 78은 거짓이기 때문에 0을 return합니다.
+     */
+    public int exam_8(String ineq, String eq, int n, int m) {
+        boolean b = false;
+        switch (ineq + eq) {
+            case ">=":
+                b = (n >= m);
+                break;
+            case "<=":
+                b = (n <= m);
+                break;
+            case ">!":
+                b = (n > m);
+                break;
+            case "<!":
+                b = (n < m);
+                break;
+        }
+
+        return b ? 1 : 0;
+
+        // 다른 사람의 풀이
+//        return (">".equals(ineq) ? n > m : n < m) || ("=".equals(eq) ? n == m : false) ? 1 : 0;
+    }
+
+    /*
+        문제 설명
         양의 정수 n이 매개변수로 주어질 때, n이 홀수라면 n 이하의 홀수인 모든 양의 정수의 합을 return 하고 n이 짝수라면 n 이하의 짝수인 모든 양의 정수의 제곱의 합을 return 하는 solution 함수를 작성해 주세요.
 
         제한사항

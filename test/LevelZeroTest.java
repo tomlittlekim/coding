@@ -8,6 +8,15 @@ public class LevelZeroTest {
     private static final Level0 LEVEL_0 = new Level0();
 
     @ParameterizedTest
+    @CsvSource({
+            "<,=,20,50,1"
+            , ">,!,41,78,0"
+    })
+    void exam_8(String ineq, String eq, int n, int m, int expected) {
+        Assertions.assertEquals(expected, LEVEL_0.exam_8(ineq, eq, n, m));
+    }
+
+    @ParameterizedTest
     @CsvSource({"7,16", "10,220"})
     void exam_7(int n, int expected) {
         Assertions.assertEquals(expected, LEVEL_0.exam_7(n));
