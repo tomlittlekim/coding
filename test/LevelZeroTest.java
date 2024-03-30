@@ -9,6 +9,15 @@ public class LevelZeroTest {
 
     @ParameterizedTest
     @CsvSource({
+            "-4,7,true,3"
+            ,"-4,7,false,-11"
+    })
+    void exam_9(int a, int b, boolean flag, int expected) {
+        Assertions.assertEquals(expected, LEVEL_0.exam_9(a, b, flag));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "<,=,20,50,1"
             , ">,!,41,78,0"
     })
