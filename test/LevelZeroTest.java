@@ -9,6 +9,15 @@ public class LevelZeroTest {
 
     @ParameterizedTest
     @CsvSource({
+            "abc1abc1abc,acbac"
+    })
+    void exam_10(String code, String result) {
+        System.out.println(LEVEL_0.exam_10(code));
+        Assertions.assertEquals(result, LEVEL_0.exam_10(code));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "-4,7,true,3"
             ,"-4,7,false,-11"
     })
