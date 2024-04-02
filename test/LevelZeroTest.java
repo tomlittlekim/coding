@@ -1,11 +1,29 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class LevelZeroTest {
 
     private static final Level0 LEVEL_0 = new Level0();
+
+    @ParameterizedTest
+    @MethodSource("exam11Data")
+    void exam_11(int a, int d, boolean[] included, int expected) {
+        Assertions.assertEquals(expected, LEVEL_0.exam_11(a, d, included));
+    }
+
+    static Stream<Arguments> exam11Data() {
+        return Stream.of(
+                Arguments.of(3, 4, new boolean[]{true, false, false, true, true}, 37)
+                , Arguments.of(7, 1, new boolean[]{false, false, false, true, false, false, false}, 10)
+        );
+    }
 
     @ParameterizedTest
     @CsvSource({
