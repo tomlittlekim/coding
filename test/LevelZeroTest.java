@@ -13,6 +13,16 @@ public class LevelZeroTest {
     private static final Level0 LEVEL_0 = new Level0();
 
     @ParameterizedTest
+    @CsvSource({
+            "2,6,1,9"
+            ,"5,3,3,473"
+            ,"4,4,4,110592"
+    })
+    void exam_12(int a, int b, int c, int expected) {
+        Assertions.assertEquals(expected, LEVEL_0.exam_12(a, b, c));
+    }
+
+    @ParameterizedTest
     @MethodSource("exam11Data")
     void exam_11(int a, int d, boolean[] included, int expected) {
         Assertions.assertEquals(expected, LEVEL_0.exam_11(a, d, included));
